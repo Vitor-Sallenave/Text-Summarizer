@@ -16,12 +16,12 @@ def Header():
 def createDict(document):
     dictionary = dict()
 
-    for word in document:
-        word_text = word.text
-        if word_text not in dictionary:
-            dictionary[word_text] = 1
+    for token in document:
+        token_text = token.text
+        if token_text not in dictionary:
+            dictionary[token_text] = 1
         else:
-            dictionary[word_text] += 1
+            dictionary[token_text] += 1
 
     return dictionary
 
@@ -79,7 +79,7 @@ def printDict(obj):
     print('\b')
     print('- Dictionary: \n')
     for item in obj:
-        print(f'{item}:{obj[item]}\b')
+        print(f'{item} : {obj[item]} \b')
     print('\b')
     line()
     print('\b')
