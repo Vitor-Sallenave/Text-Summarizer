@@ -48,7 +48,7 @@ def verifySentsScore(document, dictionary):
     return sorted(sorted(sentences_verified, key=lambda x: x[2], reverse=True), key=lambda x: x[0])
 
 
-# Summarizes the text after the sentences have been verified
+# Summarizes the text in 'num_sents' sentences after they have been verified
 def Summarizer(sentences_verified, num_sents):
     summarized_text = ''
 
@@ -64,9 +64,10 @@ def printText(obj):
     print('\b')
     line()
 
+
 # Prints information stored in the sentences
 def printSent(obj):
-    print('- Sentences: \n')
+    print('- Sentences Score: \n')
     for item in obj:
         print(f'{item}\b')
     print('\b')
@@ -74,7 +75,7 @@ def printSent(obj):
     print('\b')
 
 
-# Prints information stored in a dictionary
+# Prints information stored in the dictionary
 def printDict(obj):
     print('\b')
     print('- Dictionary: \n')
@@ -90,15 +91,15 @@ def main():
     # Loading the pipeline
     nlp = spacy.load("pt_core_news_lg")
     # Example test
-    text = """O processamento de linguagem natural é um ramo da inteligência artificial
-    que permite aos computadores compreender, gerar e manipular a linguagem humana.
-    O processamento de linguagem natural tem a capacidade de interrogar os dados com texto
-    ou voz de linguagem natural. Isso também é chamado de entrada de linguagem.
-    A maioria dos consumidores provavelmente interagiu com a PNL sem perceber.
-    Por exemplo, NLP é a tecnologia básica protegida por assistentes virtuais, como o
-    Oracle Digital Assistant, Siri, Cortana ou Alexa. Quando fazemos perguntas sobre
-    esses assistentes virtuais, o NLP é o que permite que eles não apenas entendam
-    a solicitação do usuário, mas também respondam em linguagem natural."""
+    text = """O processamento de linguagem natural é um ramo da inteligência artificial 
+que permite aos computadores compreender, gerar e manipular a linguagem humana. 
+O processamento de linguagem natural tem a capacidade de interrogar os dados com texto 
+ou voz de linguagem natural. Isso também é chamado de entrada de linguagem. 
+A maioria dos consumidores provavelmente interagiu com a PNL sem perceber. 
+Por exemplo, NLP é a tecnologia básica protegida por assistentes virtuais, como o 
+Oracle Digital Assistant, Siri, Cortana ou Alexa. Quando fazemos perguntas sobre 
+esses assistentes virtuais, o NLP é o que permite que eles não apenas entendam 
+a solicitação do usuário, mas também respondam em linguagem natural."""
     # Creating a document
     doc = nlp(text)
     printText(doc)
